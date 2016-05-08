@@ -52,7 +52,7 @@ def dumphash(session)
     hashes.close
   end
   print_status("Setting Execution policy back to Restricted...")
-  session.sys.process.execute("powershell Set-ExecutionPolicy Unrestricted", nil, {'Hidden' => 'true', 'Channelized' => true})
+  session.sys.process.execute("powershell Set-ExecutionPolicy Restricted", nil, {'Hidden' => 'true', 'Channelized' => true})
   print_status("Cleaning up after ourselves...")
   session.sys.process.execute("cmd /c del %TEMP%\\#{filename}", nil, {'Hidden' => 'true', 'Channelized' => true})
   session.sys.process.execute("cmd /c del %TEMP%\\#{hash_dump}", nil, {'Hidden' => 'true', 'Channelized' => true})
